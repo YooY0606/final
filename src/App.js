@@ -20,12 +20,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-});
-
-ReactGA.initialize('G-570VJYGMZT'); 
-ReactGA.pageview(window.location.pathname + window.location.search); 
+}); 
 
 function App() {
+  ReactGA.initialize('G-570VJYGMZT'); 
+  ReactGA.pageview(window.location.pathname + window.location.search);
   return (
     <View style={ {flex: 1 }}>
           <View style={[styles.center, { backgroundColor: 'cadetblue' }]}>
