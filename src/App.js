@@ -5,6 +5,7 @@ import Thr from "./thr"
 import For from "./for"
 import Fif from "./fif"
 import Six from "./six"
+import ReactGA from 'react-ga';
 import { HashRouter ,Route,Switch} from "react-router-dom";
 import Layout from "./layout";
 import {
@@ -20,6 +21,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+ReactGA.initialize('G-570VJYGMZT'); 
+ReactGA.pageview(window.location.pathname + window.location.search); 
+
 function App() {
   return (
     <View style={ {flex: 1 }}>
