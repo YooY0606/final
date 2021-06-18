@@ -5,7 +5,7 @@ import {
     Text,
   } from 'react-native';
   import {  Container, Row, Col } from 'reactstrap';
-  import { initGA, logPageView } from "./analytics"
+
   const styles = StyleSheet.create({
     center: {
       flex: 1,
@@ -19,16 +19,8 @@ import {
     },
   });
   
-  export default class First extends React.Component  {
-    componentDidMount () {
-      if (!window.GA_INITIALIZED) {
-        initGA()
-        window.GA_INITIALIZED = true
-      }
-      logPageView()
+  export default function First () {
     
-  }
-    render(){
       return (
           <Container>
               <div className="first">
@@ -48,4 +40,3 @@ import {
           </Container>
       );
   }
-}
