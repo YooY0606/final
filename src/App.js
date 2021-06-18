@@ -1,3 +1,4 @@
+import React from 'react'
 import './App.css';
 import First from "./first"
 import Sec from "./sec"
@@ -5,7 +6,6 @@ import Thr from "./thr"
 import For from "./for"
 import Fif from "./fif"
 import Six from "./six"
-import ReactGA from 'react-ga';
 import { HashRouter ,Route,Switch} from "react-router-dom";
 import Layout from "./layout";
 import {
@@ -13,18 +13,25 @@ import {
   View,
   Text,
 } from 'react-native';
-
+import { initGA, logPageView } from "./analytics"
 const styles = StyleSheet.create({
   center: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
   },
-}); 
+});
+ 
 
-function App() {
-  ReactGA.initialize('G-570VJYGMZT'); 
-  ReactGA.pageview(window.location.pathname + window.location.search);
+export default class App extends React.Component  {
+  componentDidMount () {
+    if (!window.GA_INITIALIZED) {
+      initGA()
+      window.GA_INITIALIZED = true
+    }
+    logPageView()
+  }
+  render(){
   return (
     <View style={ {flex: 1 }}>
           <View style={[styles.center, { backgroundColor: 'cadetblue' }]}>
@@ -45,5 +52,5 @@ function App() {
     </View>
   );
 }
+}
 
-export default App;
