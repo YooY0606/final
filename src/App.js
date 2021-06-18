@@ -13,7 +13,6 @@ import {
   View,
   Text,
 } from 'react-native';
-import { initGA, logPageView } from "./analytics"
 const styles = StyleSheet.create({
   center: {
     flex: 1,
@@ -24,13 +23,6 @@ const styles = StyleSheet.create({
  
 
 export default class App extends React.Component  {
-  componentDidMount () {
-    if (!window.GA_INITIALIZED) {
-      initGA()
-      window.GA_INITIALIZED = true
-    }
-    logPageView()
-  }
   render(){
   return (
     <View style={ {flex: 1 }}>
